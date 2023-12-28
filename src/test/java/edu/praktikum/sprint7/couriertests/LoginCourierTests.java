@@ -1,4 +1,4 @@
-package edu.praktikum.sprint7.courierTests;
+package edu.praktikum.sprint7.couriertests;
 
 import edu.praktikum.sprint7.courier.courier.*;
 import io.qameta.allure.Description;
@@ -32,8 +32,8 @@ public class LoginCourierTests {
     @Description("Проверяем, что курьер может войти в систему с валидными данными")
     public void courierLoginOkValidData() {
         ValidatableResponse responseLoginCourier = courierSteps.loginCourier(courierCreds);
-        courierAssert.loginCourierOk(responseLoginCourier);
         courierID = responseLoginCourier.extract().path("id");
+        courierAssert.loginCourierOk(responseLoginCourier);
     }
 
     @Test

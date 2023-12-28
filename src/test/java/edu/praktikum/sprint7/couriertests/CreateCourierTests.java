@@ -1,4 +1,4 @@
-package edu.praktikum.sprint7.courierTests;
+package edu.praktikum.sprint7.couriertests;
 
 import edu.praktikum.sprint7.courier.courier.*;
 import io.qameta.allure.Description;

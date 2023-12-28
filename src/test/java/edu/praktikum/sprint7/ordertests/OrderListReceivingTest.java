@@ -1,4 +1,4 @@
-package edu.praktikum.sprint7.orderTests;
+package edu.praktikum.sprint7.ordertests;
 
 import edu.praktikum.sprint7.courier.order.OrderSteps;
 import io.qameta.allure.Description;
@@ -6,6 +6,7 @@ import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.ValidatableResponse;
 import org.junit.Test;
 
+import static org.apache.http.HttpStatus.SC_OK;
 import static org.hamcrest.CoreMatchers.notNullValue;
 
 public class OrderListReceivingTest {
@@ -16,7 +17,7 @@ public class OrderListReceivingTest {
         OrderSteps orderSteps = new OrderSteps();
         ValidatableResponse responseOrderList = orderSteps.getOrderList();
         responseOrderList.assertThat()
-                .statusCode(200)
+                .statusCode(SC_OK)
                 .body("orders", notNullValue());
     }
 }

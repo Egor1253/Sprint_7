@@ -13,7 +13,7 @@ public class OrderSteps {
     public static RequestSpecification requestSpec() {
         return given().log().all()
                 .contentType(ContentType.JSON)
-                .baseUri(BASE_URL.getUrl());
+                .baseUri(BASE_URL);
     }
 
     @Step("Создание заказа")
@@ -21,7 +21,7 @@ public class OrderSteps {
         return requestSpec()
                 .body(orderModel)
                 .when()
-                .post(ORDER_POST_CREATE.getUrl())
+                .post(ORDER_POST_CREATE)
                 .then();
     }
 
@@ -29,7 +29,7 @@ public class OrderSteps {
     public ValidatableResponse getOrderList() {
         return requestSpec()
                 .when()
-                .get(ORDER_GET_LIST.getUrl())
+                .get(ORDER_GET_LIST)
                 .then();
     }
 
@@ -38,7 +38,7 @@ public class OrderSteps {
         return requestSpec()
                 .body(track)
                 .when()
-                .put(ORDER_PUT_CANCEL.getUrl())
+                .put(ORDER_PUT_CANCEL)
                 .then();
     }
 }

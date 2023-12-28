@@ -13,7 +13,7 @@ public class CourierSteps {
     public static RequestSpecification requestSpec() {
         return given().log().all()
                 .contentType(ContentType.JSON)
-                .baseUri(BASE_URL.getUrl());
+                .baseUri(BASE_URL);
     }
 
     @Step("Регистрация нового курьера")
@@ -21,7 +21,7 @@ public class CourierSteps {
         return requestSpec()
                 .body(courierModel)
                 .when()
-                .post(COURIER_POST_CREATE.getUrl())
+                .post(COURIER_POST_CREATE)
                 .then();
     }
 
@@ -30,7 +30,7 @@ public class CourierSteps {
         return requestSpec()
                 .body(courierCreds)
                 .when()
-                .post(COURIER_POST_LOGIN.getUrl())
+                .post(COURIER_POST_LOGIN)
                 .then();
     }
 
@@ -38,7 +38,7 @@ public class CourierSteps {
     public ValidatableResponse deleteCourier(int courierId) {
         return requestSpec()
                 .when()
-                .delete(COURIER_DELETE.getUrl() + courierId)
+                .delete(COURIER_DELETE + courierId)
                 .then();
     }
 }

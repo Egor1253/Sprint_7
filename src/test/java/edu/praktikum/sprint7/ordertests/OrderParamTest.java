@@ -1,4 +1,4 @@
-package edu.praktikum.sprint7.orderTests;
+package edu.praktikum.sprint7.ordertests;
 
 import edu.praktikum.sprint7.courier.order.OrderModel;
 import edu.praktikum.sprint7.courier.order.OrderSteps;
@@ -14,6 +14,7 @@ import org.junit.runners.Parameterized;
 
 import java.util.List;
 
+import static org.apache.http.HttpStatus.SC_CREATED;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
 
@@ -56,7 +57,7 @@ public class OrderParamTest {
         ValidatableResponse responseCreateOrder = orderSteps.createNewOrder(orderModel);
         track = responseCreateOrder.extract().path("track");
         responseCreateOrder.assertThat()
-                .statusCode(201)
+                .statusCode(SC_CREATED)
                 .body("track", is(notNullValue()));
     }
 }
